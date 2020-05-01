@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<h1>TODO list</h1>
+	<p> To remove the task click on the task</p>
+	<form id="todo">
+		<input id="todoinput">
+        <button type="button" onclick="Addlist()">Add Item</button>
+        
+     </form>
+     
+     <ul id="todolist">
+     <li  onclick=Removelist(input)></li>
+
+     </ul>
+ 
+<script>
+     
+	function Addlist()
+	{
+		var input= document.getElementById("todoinput").value;
+		var txt= document.createTextNode(input);
+		var list= document.createElement("li");
+		list.setAttribute('onclick', 'Removelist(this)');
+		list.appendChild(txt);
+		document.getElementById("todolist").appendChild(list);
+   
+    }
+    function Removelist(input)
+    {
+    	var remove= confirm("Do you want to remove the task?");
+    	if(remove==true)
+    		input.remove();//alertbox will generate and click ok to remove the task
+    }
+</script>
+ </body>
+  </html>
